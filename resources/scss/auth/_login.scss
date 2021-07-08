@@ -1,0 +1,61 @@
+.auth-page{
+    background-color: #f7f7f7;
+    color: $font_color;
+}
+.auth-page {
+    .form-area{
+        background: linear-gradient( to bottom, $primary_color, $secondary_color);
+        color: $font_color_on_dark;
+        display: flex;
+        align-items: center;
+        h2{
+            line-height: 60px;
+        }
+        .form-control:not(textarea){
+            height: 50px;
+            
+        }
+        .form-control{
+            max-width: 400px;
+        }
+        .action-list a{
+            color: #fff;
+        }
+        .footer-actions{
+            margin-top: 100px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            bottom: 30px;
+        }
+        .action-list{
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            padding-top: 20px;
+          
+        }
+        .list-inline-item + .list-inline-item{
+            margin-left: 20px;
+        }
+    }
+    .greeting-area{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        p{
+            color: lighten($font_color, 7%);
+        }
+    }
+    .flex-protect{
+        width: 50%;
+        margin: 0 auto;
+    }
+    h1{
+        text-transform: uppercase;
+    }
+    .btn-primary{
+        background-color: $primary_color;
+    }
+    
+}

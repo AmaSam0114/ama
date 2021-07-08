@@ -1,0 +1,52 @@
+@font-face{
+    font-family: 'OpenSans';
+    src: url('fonts/open_sans/OpenSans-Regular.ttf');
+}
+@font-face{
+    font-family: 'OpenSans-SB';
+    src: url('fonts/open_sans/OpenSans-SemiBold.ttf');
+}
+htm
+
+h1{
+    font-family: "OpenSans";
+}
+h2{
+    font-family: "OpenSans-SB";
+}
+.btn{
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 50px;
+    font-size:  20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.btn-primary{
+    /*border: 1px solid #fff;*/
+    box-shadow: 0px 0px 7px lighten($font_color, 20%);
+}
+section.fluid-container{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.gl-datatable{
+    border: 2px solid #61cb5a;
+    border-radius: 10px;
+}
+.form-control {
+    height: 40px;
+}
+.btn-sm{
+    font-size: 13px;
+}
+.gl-map{
+    height: 100%;
+    background-color: #ccc;
+    border: 2px solid $primary_color;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.gradient-box{
+    background: linear-gradient(to right, $primary_color, $secondary_color);
+}
