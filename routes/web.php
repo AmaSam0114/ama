@@ -51,3 +51,4 @@ Route::get('/client/view/{id}', [App\Http\Controllers\ClientController::class, '
 
 
 Route::get('/report/view', [App\Http\Controllers\ReportController::class, 'report1'])->name('report.view');
+Route::get('/contact', function(){return \View::make("contact");})->name('contact');

@@ -75,7 +75,12 @@
                         <td>3h</td>
                         <td>LKR 1500.00</td>
                         <td>2</td>
-                        <td><a href="#" class=""  data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="#" class=""  data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a> 
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -85,7 +90,12 @@
                         <td>1h</td>
                         <td>LKR 1500.00</td>
                         <td>3</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a> 
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -95,7 +105,12 @@
                         <td>60min</td>
                         <td>LKR 1500.00</td>
                         <td>2</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#task-view"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a> 
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -105,7 +120,12 @@
                         <td>3h</td>
                         <td>LKR 1500.00</td>
                         <td>1</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -115,7 +135,12 @@
                         <td>2h</td>
                         <td>LKR 1500.00</td>
                         <td>2</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a> 
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -125,7 +150,12 @@
                         <td>1h</td>
                         <td>LKR 1500.00</td>
                         <td>1</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                        </td>
                     </tr>
                    
                     
@@ -161,7 +191,12 @@
                         <td>Good</td>
                         <td></td>
                         <td>2</td>
-                        <td><a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 " ><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor', 'janitor'])
+                            <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 " ><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -173,7 +208,12 @@
                         <td>Good</td>
                         <td></td>
                         <td>2</td>
-                        <td><a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor', 'janitor'])
+                            <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -185,7 +225,12 @@
                         <td>Redo</td>
                         <td> Task Not Complted Properly</td>
                         <td>2</td>
-                        <td><a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor', 'janitor'])
+                            <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -197,7 +242,12 @@
                         <td>Pending</td>
                         <td></td>
                         <td>2</td>
-                        <td><a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a href="{{route('cycle.view', ['id'=>1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @role(['manager', 'supervisor', 'janitor'])
+                            <a href="{{route('cycle.update', ['id'=>1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                        </td>
                     </tr>
                    
                    

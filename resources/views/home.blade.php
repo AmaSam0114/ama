@@ -65,7 +65,8 @@
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="row">
+            @role(['manager', 'supervisor', 'janitor'])
+            <div class="row mb-3">
                 <div class="col-sm-12 calender-area">
                     <div class="card">
                         <div class="card-header">
@@ -80,18 +81,28 @@
                     </div>
                 </div>
             </div>
+            @endrole
             <div class="row">
-                <div class="col-sm-12 quicklinks-area mt-3">
+                <div class="col-sm-12 quicklinks-area">
                     <div class="card">
                         <div class="card-header">
                             <h5> Quick Links</h5>
                         </div>
                         <div class="card-body">
+                            @role(['manager', 'supervisor', 'janitor'])
                             <ul class="list-group">
                                 <li class="list-group-item"><a href="{{route('job.create')}}">New Job</a></li>
                                 <li class="list-group-item"><a href="{{route('job.listing')}}">My Jobs</a></li>
                                 <li class="list-group-item"><a href="{{route('employee.attendance')}}">Janitor Attendance</a></li>
                             </ul>
+                            @endrole
+                            @role(['client'])
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="{{route('job.create')}}">Contact Green Lanka</a></li>
+                                <li class="list-group-item"><a href="{{route('job.listing')}}">My Jobs</a></li>
+                                <li class="list-group-item"><a href="{{route('employee.attendance')}}">Invoice</a></li>
+                            </ul>
+                            @endrole
                         </div>
                     </div>
                 </div>

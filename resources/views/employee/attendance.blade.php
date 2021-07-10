@@ -4,7 +4,12 @@
     <div class="row">
         <div class="col-sm-12">
             <nav aria-label="breadcrumb">
+                @role(['manager'])
                 <h2>Attendance</h2>
+                @endrole
+                @role(['supervisor'])
+                <h2>Janitor Attendance</h2>
+                @endrole
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Employee</a></li>
@@ -21,8 +26,14 @@
                 <label>Type</label>
                 <select class="form-control" name="supervisor" >
                     <option class="" selected disabled>Select a Type</option>
+                    @role(['manager'])
                     <option> Supervisor</option>
                     <option> Janitor</option>
+                    @endrole
+                    @role(['supervisor'])
+                    <option> Temporary</option>
+                    <option> Permanant</option>
+                    @endrole
                 </select>
             </div>
         </div>

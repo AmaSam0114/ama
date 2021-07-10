@@ -27,8 +27,8 @@
                 <label>Type</label>
                 <select class="form-control" name="supervisor" >
                     <option class="" selected disabled>Select a Type</option>
-                    <option> Manager</option>
-                    <option> Supervisor</option>
+                    <option @role(['supervisor', 'janitor', 'client']) disabled @endrole> Manager</option>
+                    <option @role(['supervisor', 'janitor', 'client']) disabled @endrole> Supervisor</option>
                     <option> Janitor</option>
                 </select>
             </div>

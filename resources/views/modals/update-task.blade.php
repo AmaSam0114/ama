@@ -18,20 +18,24 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Number of Employees</label>
-                                <input type="text" name="number" class="form-control" placeholder="Assigned employee count" value="2"/>
+                                <label>Status</label>
+                                <select class="form-control">
+                                    <option>Open</option>
+                                    <option>Pending</option>
+                                    <option>Complete</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Estimated Time(h)</label>
-                                <input type="text" name="number" class="form-control" placeholder="Enter rough time" value="2"/>
+                                <input type="text" name="number" @role(['supervisor', 'janitor', 'client']) disabled @endrole class="form-control" placeholder="Enter rough time" value="2"/>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Estimated Charge(LKR)</label>
-                                <input type="text" name="Text" class="form-control" placeholder="Enter Estimated Charge" value="300.00" />
+                                <input type="text" name="Text" @role(['supervisor', 'janitor', 'client']) disabled @endrole class="form-control" placeholder="Enter Estimated Charge" value="300.00" />
                             </div>
                         </div>
                         <div class="col-sm-12">

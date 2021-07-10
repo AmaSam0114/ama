@@ -4,7 +4,12 @@
     <div class="row">
         <div class="col-sm-12">
             <nav aria-label="breadcrumb">
+                @role(['manager'])
                 <h2>All Jobs</h2>
+                @endrole
+                @role(['supervisor', 'janitor', 'client'])
+                <h2>My Jobs</h2>
+                @endrole
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Jobs</a></li>
@@ -16,6 +21,7 @@
     </div>
     <!-- Filed Area -->
     <div class="row field-area mt-5">
+        @role(['supervisor', 'manager'])
         <div class="col-sm-3">
             <div class="form-group">
                 @role(['manager'])
@@ -37,6 +43,7 @@
                 </select>
             </div>
         </div>
+        @endrole
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Date From</label>
@@ -87,7 +94,14 @@
                         <td>Pending</td>
                         <td>LKR 10, 000.00</td>
                         <td>Upul</td>
-                        <td><a href="{{route('job.view', ["id" => 1])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a @role(['manager', 'supervisor', 'client']) href="{{route('job.view', ["id" => 1])}}" @endrole
+                                @role(['janitor']) href="{{route('cycle.view', ['id' => 1])}}" @endrole 
+                                class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                                @role(['manager', 'supervisor'])
+                                <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                                @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -98,7 +112,14 @@
                         <td>Pending</td>
                         <td>LKR 12, 000.00</td>
                         <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 2])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a @role(['manager', 'supervisor', 'client']) href="{{route('job.view', ["id" => 2])}}" @endrole
+                                @role(['janitor']) href="{{route('cycle.view', ['id' => 1])}}" @endrole 
+                                class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                                @role(['manager', 'supervisor'])
+                                <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                                @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -109,7 +130,14 @@
                         <td>Pending</td>
                         <td>LKR 12, 000.00</td>
                         <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 3])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a @role(['manager', 'supervisor', 'client']) href="{{route('job.view', ["id" => 3])}}" @endrole
+                                @role(['janitor']) href="{{route('cycle.view', ['id' => 1])}}" @endrole 
+                                class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                                @role(['manager', 'supervisor'])
+                                <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                                @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -120,7 +148,14 @@
                         <td>Pending</td>
                         <td>LKR 12, 000.00</td>
                         <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 4])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a @role(['manager', 'supervisor', 'client']) href="{{route('job.view', ["id" => 4])}}" @endrole
+                                @role(['janitor']) href="{{route('cycle.view', ['id' => 1])}}" @endrole 
+                                class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                                @role(['manager', 'supervisor'])
+                                <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                                @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -131,96 +166,16 @@
                         <td>Pending</td>
                         <td>LKR 12, 000.00</td>
                         <td>Karman</td>
-                        <td><a href="{{route('job.view',["id" => 5])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td>
+                            <a @role(['manager', 'supervisor', 'client']) href="{{route('job.view', ["id" => 6])}}" @endrole
+                                @role(['janitor']) href="{{route('cycle.view', ['id' => 1])}}" @endrole 
+                                class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                                @role(['manager', 'supervisor'])
+                                <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                                @endrole
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 6])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 7])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 8])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 9])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 16])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 10])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 12])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>job6476587</td>
-                        <td>2020-07-31</td>
-                        <td>Closed</td>
-                        <td>2020-11-31</td>
-                        <td>Pending</td>
-                        <td>LKR 12, 000.00</td>
-                        <td>Karman</td>
-                        <td><a href="{{route('job.view', ["id" => 13])}}" class=""><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="{{route('job.update', ["id" => 1])}}" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
-                    </tr>
+                   
 
                 </tbody>
             </table>

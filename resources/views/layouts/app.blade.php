@@ -54,7 +54,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="user-role">
-                                <p class="lead text-center">{{ Auth::user()->role }}</p>
+                                <p class="lead text-center">{{ ucfirst(Auth::user()->role) }}</p>
                             </div>
 
                         </div>
@@ -98,8 +98,10 @@
                                 </li>  
                                 <ul class="sub-menu collapse {{routeParent('job') || routeParent('cycle')? 'show' : ''}}" id="service">
                                     <li class="{{routeChild('job.listing')? 'active': ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('job.listing')}}"> Job Listing</a></li>
+                                    @role(['manager'])
                                     <li class="{{routeChild('job.create')? 'active': ''}}"><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="{{route('job.create')}}"> Job Create</a></li>
-                                    <li class="{{routeChild('job.calender')? 'active': ''}}"><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="{{route('job.calender')}}"> Job Calender</a></li>
+                                    @endrole
+                                    <li class="{{routeChild('job.calender')? 'active': ''}}"><i class="fa fa-calendar" aria-hidden="true"></i><a href="{{route('job.calender')}}"> Job Calender</a></li>
                                 </ul>
 
                                 @role(['manager', 'supervisor'])
@@ -107,9 +109,9 @@
                                     <i class="fa fa-users fa-lg"></i>    <a href="#"> Employees <span class="arrow"></span></a>
                                 </li>
                                 <ul class="sub-menu collapse {{routeParent('employee')? 'show' : ''}}" id="new">
-                                    <li class="{{routeChild('employee.listing')?'active' : ''}}"><a href="{{route('employee.listing')}}"> Employee Listing</a></li>
-                                    <li class="{{routeChild('employee.create')?'active' : ''}}"><a href="{{route('employee.create')}}"> Employee Create</a></li>
-                                    <li class="{{routeChild('employee.attendance')?'active' : ''}}"><a href="{{route('employee.attendance')}}"> Attendance</a></li>
+                                    <li class="{{routeChild('employee.listing')?'active' : ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('employee.listing')}}"> Employee Listing</a></li>
+                                    <li class="{{routeChild('employee.create')?'active' : ''}}"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{route('employee.create')}}"> Employee Create</a></li>
+                                    <li class="{{routeChild('employee.attendance')?'active' : ''}}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><a href="{{route('employee.attendance')}}"> Attendance</a></li>
                                 </ul>
                                 @endrole
 
@@ -122,9 +124,9 @@
                                     </a>
                                 </li>
                                 <ul class="sub-menu collapse {{routeParent('client')?'show':''}}" id="emp">
-                                    <li class="{{routeChild('client.listing')?'active': ''}}"><a href="{{route('client.listing')}}"> Client Listing</a></li>
-                                    <li class="{{routeChild('client.create')?'active': ''}}"><a href="{{route('client.create')}}"> Client Create</a></li>
-                                    <li class="{{routeChild('client.invoice')?'active': ''}}"><a href="{{route('client.invoice')}}"> Invoices</a></li>
+                                    <li class="{{routeChild('client.listing')?'active': ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('client.listing')}}"> Client Listing</a></li>
+                                    <li class="{{routeChild('client.create')?'active': ''}}"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{route('client.create')}}"> Client Create</a></li>
+                                    <li class="{{routeChild('client.invoice')?'active': ''}}"><i class="fa fa-file-excel-o" aria-hidden="true"></i><a href="{{route('client.invoice')}}"> Invoices</a></li>
                                 </ul>
 
 
@@ -136,10 +138,18 @@
                                     </a>
                                 </li>
                                 <ul class="sub-menu collapse {{routeParent('report')?'show':''}}" id="report">
-                                    <li><a href="{{route('report.view')}}"> Annual Job Periods Report</a></li>
-                                    <li><a href="{{route('report.view')}}"> Annual Service Report</a></li>
-                                    <li><a href="{{route('report.view')}}"> Annual Employee Proformance</a></li>
+                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}"> Annual Job Periods Report</a></li>
+                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}"> Annual Service Report</a></li>
+                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}"> Annual Employee Proformance</a></li>
                                 </ul>
+                                @endrole
+                                @role(['client'])
+                                <li class="{{ routeParent('contact')? 'active' : '' }}">
+                                   <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                    <a href="{{route('contact')}}">
+                                        Contact Green Lanka
+                                    </a>
+                                </li>
                                 @endrole
                             </ul>
                         </div>

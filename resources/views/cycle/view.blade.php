@@ -26,15 +26,36 @@
         <div class="col-sm-3 text-content">
             <div class="form-group">
                 <label>Janitor</label>
-                <select class="form-control" name="supervisor" >
+                <select class="form-control" @role(['client']) disabled @endrole name="supervisor" >
                     <option class="" selected disabled>Select a Janitor</option>
                     <option> S Saman</option>
                     <option> D.Athukorala</option>
                 </select>
             </div>
         </div>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-6 text-right">
+            @role(['janitor'])
+            <button class="btn btn-outline-primary btn-sm  mt-4" type="button" data-toggle="modal" data-target="#view-job">
+                View Details
+            </button>
+            <div class="btn-group ml-3 mt-4">
+                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Checked In
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Check In</a>
+                    <a class="dropdown-item" href="#">Check out</a>
+
+                </div>
+            </div>
+            @endrole
+            @role(['client'])
+            <button class="btn btn-outline-primary btn-sm  mt-4" type="button" data-toggle="modal" data-target="#feedback">
+                Feedback
+            </button>
+            @endrole
+        </div>
+
         <div class="col-sm-12">
             <div class="form-group">
                 <label>Special Note</label>
@@ -46,7 +67,12 @@
         <div class="col-sm-3">
             <h5 class="text-uppercase mb-3"><strong>Task List</strong> </h5>
         </div>
-        <div class="col-sm-9 text-right"><button class="btn btn-sm btn-outline-primary " data-toggle="modal" data-target="#staticBackdrop"><i class="fa fa-plus"></i> Add Additional Task</button></div>
+        <div class="col-sm-9 text-right">
+            @role(['manager', 'supervisor'])<button class="btn btn-sm btn-outline-primary " data-toggle="modal" data-target="#staticBackdrop"><i class="fa fa-plus"></i> Add Additional Task</button> 
+            @endrole
+            @role(['client'])<button class="btn btn-sm btn-outline-primary " data-toggle="modal" data-target="#request-task"><i class="fa fa-plus"></i> Request Additional Task</button> 
+            @endrole
+        </div>
 
         <div class="col-sm-12">
             <table class="table table-striped gl-datatable">
@@ -71,7 +97,29 @@
                         <td>3h</td>
                         <td>LKR 1500.00</td>
                         <td>2</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" ></i> Update</a></td>
+                        <td class="">
+                            @role(['client'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @endrole
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" ></i> Update</a>
+                            @endrole
+                            @role(['janitor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a> 
+                            <div class="btn-group ml-2">
+                                <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    In Progress
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Pending</a>
+                                    <a class="dropdown-item" href="#">In Progress</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                </div>
+                            </div>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -81,7 +129,29 @@
                         <td>1h</td>
                         <td>LKR 1500.00</td>
                         <td>3</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td class="">
+                             @role(['client'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @endrole
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            <a href="#" class="ml-2 "><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                            @role(['janitor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a> 
+                            <div class="btn-group ml-2">
+                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pending &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Pending</a>
+                                    <a class="dropdown-item" href="#">In Progress</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                </div>
+                            </div>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -91,7 +161,29 @@
                         <td>60min</td>
                         <td>LKR 1500.00</td>
                         <td>2</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td class="">
+                             @role(['client'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @endrole
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                            @role(['janitor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a> 
+                            <div class="btn-group ml-2">
+                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Pending &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Pending</a>
+                                    <a class="dropdown-item" href="#">In Progress</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                </div>
+                            </div>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -101,7 +193,29 @@
                         <td>3h</td>
                         <td>LKR 1500.00</td>
                         <td>1</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td class="">
+                             @role(['client'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @endrole
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                            @role(['janitor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a> 
+                            <div class="btn-group ml-2">
+                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pending &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Pending</a>
+                                    <a class="dropdown-item" href="#">In Progress</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                </div>
+                            </div>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -111,7 +225,29 @@
                         <td>2h</td>
                         <td>LKR 1500.00</td>
                         <td>2</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td class="">
+                             @role(['client'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @endrole
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                            @role(['janitor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a> 
+                            <div class="btn-group ml-2">
+                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pending &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Pending</a>
+                                    <a class="dropdown-item" href="#">In Progress</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                </div>
+                            </div>
+                            @endrole
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -121,7 +257,29 @@
                         <td>1h</td>
                         <td>LKR 1500.00</td>
                         <td>1</td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+                        <td class="">
+                             @role(['client'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            @endrole
+                            @role(['manager', 'supervisor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
+                            <a href="#" class="ml-2 " aria-hidden="true" data-toggle="modal" data-target="#update-task"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                            @endrole
+                            @role(['janitor'])
+                            <a href="#" class="" data-toggle="modal" data-target="#view-task"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a> 
+                            <div class="btn-group ml-2">
+                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Pending &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Pending</a>
+                                    <a class="dropdown-item" href="#">In Progress</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                </div>
+                            </div>
+                            @endrole
+                        </td>
                     </tr>
 
 
@@ -134,150 +292,11 @@
 @endsection
 
 @section('modal')
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">New Task</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Task Short Description</label>
-                                <input type="text" name="text" class="form-control" placeholder="Enter short description"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Number of Employees</label>
-                                <input type="text" name="number" class="form-control" placeholder="Assigned employee count"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Estimated Time(h)</label>
-                                <input type="text" name="number" class="form-control" placeholder="Enter rough time"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Estimated Charge(LKR)</label>
-                                <input type="text" name="Text" class="form-control" placeholder="Enter Estimated Charge"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea type="text" name="Text" class="form-control" rows="5" placeholder="Description"/></textarea>
-                            </div>
-                        </div>
-                    </div>
+@include('modals/view-job')
+@include('modals/new-task')
+@include('modals/update-task')
+@include('modals/view-task')
+@include('modals/feedback')
+@include('modals/request-task')
 
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-sm btn-primary">Add</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="update-task" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Update Task</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Task Short Description</label>
-                                <input type="text" name="text" class="form-control" placeholder="Enter short description" value="Kitchen Clean"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Number of Employees</label>
-                                <input type="text" name="number" class="form-control" placeholder="Assigned employee count" value="2"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Estimated Time(h)</label>
-                                <input type="text" name="number" class="form-control" placeholder="Enter rough time" value="2"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Estimated Charge(LKR)</label>
-                                <input type="text" name="Text" class="form-control" placeholder="Enter Estimated Charge" value="300.00" />
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea type="text" name="Text" class="form-control" rows="5" placeholder="Description"/>Kitchen Area cleainng:
-                                A description how to clean the area and some additional special notes
-                                </textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-sm btn-primary">Update</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="view-task" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12 pl-0">
-                            <p class="lead text-truncate"><strong>Task Short Description</strong></p>
-                        </div>
-                       
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <p class="lead">
-                                    <strong> Description</strong></p>
-                                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex </p>
-                            </div>
-                            <div class="col-sm-12">
-                                <p class="lead">
-                                    <strong> Inspection remark</strong></p>
-                                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                            </div>
-                            <div class="col-sm-12">
-                                <p class="lead">
-                                    <strong> Client Remark</strong></p>
-                                <p><i class="fa fa-star text-warning"></i> <i class="fa fa-star-o ml-2 text-warning"></i> <i class="fa fa-star-o ml-2"></i> <i class="fa fa-star-o ml-2"></i> <i class="fa fa-star-o ml-2"></i> </p>
-                                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

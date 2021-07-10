@@ -9,6 +9,7 @@
                             <p class="lead text-truncate"><strong>Task Short Description</strong></p>
                         </div>
                         <div class="col-sm-6  text-right">
+                            @role(['manager', 'supervisor'])
                             <div class="btn-group">
                                 <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Active
@@ -19,6 +20,7 @@
                                    
                                 </div>
                             </div>
+                            @endrole
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
