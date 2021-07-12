@@ -78,13 +78,11 @@
                             <ul id="menu-content" class="menu-content collapse out">
                                 <li class="{{ routeParent('home')? 'active' : '' }}">
                                     <i class="fa fa-dashboard fa-lg"></i>
-                                    <a href="{{route('home')}}">
-                                        Dashboard
-                                    </a>
+                                    <a href="{{route('home')}}">Dashboard</a>
                                 </li>
 
                                 <li  data-toggle="collapse" data-target="#products" class="collapsed {{ routeParent('notification')? 'active' : ''}}">
-                                    <i class="fa fa-bell fa-lg"></i> <a href="#"> Notifications<span class="arrow"></span></a>
+                                    <i class="fa fa-bell fa-lg"></i> <a href="#">Notifications<span class="arrow"></span></a>
                                 </li>
                                 <ul class="sub-menu collapse {{ routeParent('notification')? 'show' : ''}}" id="products">
                                     <li class="{{routeChild('notification.read')? 'active': ''}}"><i class="fa fa-envelope-open-o" aria-hidden="true"></i><a href="{{route("notification.read")}}">Read</a></li>
@@ -94,23 +92,23 @@
 
 
                                 <li data-toggle="collapse" data-target="#service" class="collapsed {{routeParent('job') || routeParent('cycle') ? 'active' : ''}}">
-                                    <i class="fa fa-archive fa-lg"></i> <a href="#"> Jobs <span class="arrow"></span></a>
+                                    <i class="fa fa-archive fa-lg"></i> <a href="#">Jobs<span class="arrow"></span></a>
                                 </li>  
                                 <ul class="sub-menu collapse {{routeParent('job') || routeParent('cycle')? 'show' : ''}}" id="service">
-                                    <li class="{{routeChild('job.listing')? 'active': ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('job.listing')}}"> Job Listing</a></li>
+                                    <li class="{{routeChild('job.listing')? 'active': ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('job.listing')}}">Job Listing</a></li>
                                     @role(['manager'])
-                                    <li class="{{routeChild('job.create')? 'active': ''}}"><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="{{route('job.create')}}"> Job Create</a></li>
+                                    <li class="{{routeChild('job.create')? 'active': ''}}"><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="{{route('job.create')}}">Job Create</a></li>
                                     @endrole
-                                    <li class="{{routeChild('job.calender')? 'active': ''}}"><i class="fa fa-calendar" aria-hidden="true"></i><a href="{{route('job.calender')}}"> Job Calender</a></li>
+                                    <li class="{{routeChild('job.calender')? 'active': ''}}"><i class="fa fa-calendar" aria-hidden="true"></i><a href="{{route('job.calender')}}">Job Calender</a></li>
                                 </ul>
 
                                 @role(['manager', 'supervisor'])
                                 <li data-toggle="collapse" data-target="#new" class="collapsed {{routeParent('employee')? 'active' : ''}}">
-                                    <i class="fa fa-users fa-lg"></i>    <a href="#"> Employees <span class="arrow"></span></a>
+                                    <i class="fa fa-users fa-lg"></i>    <a href="#">Employees <span class="arrow"></span></a>
                                 </li>
                                 <ul class="sub-menu collapse {{routeParent('employee')? 'show' : ''}}" id="new">
-                                    <li class="{{routeChild('employee.listing')?'active' : ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('employee.listing')}}"> Employee Listing</a></li>
-                                    <li class="{{routeChild('employee.create')?'active' : ''}}"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{route('employee.create')}}"> Employee Create</a></li>
+                                    <li class="{{routeChild('employee.listing')?'active' : ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('employee.listing')}}">Employee Listing</a></li>
+                                    <li class="{{routeChild('employee.create')?'active' : ''}}"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{route('employee.create')}}">Employee Create</a></li>
                                     <li class="{{routeChild('employee.attendance')?'active' : ''}}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><a href="{{route('employee.attendance')}}"> Attendance</a></li>
                                 </ul>
                                 @endrole
@@ -118,37 +116,31 @@
                                 @role(['manager'])
                                 <li data-toggle="collapse" data-target="#emp" class="collapsed {{routeParent('client')?'active':''}}">
                                     <i class="fa fa-user-circle-o fa-lg"></i>
-                                    <a href="#">
-                                        Clients
-                                        <span class="arrow"></span>
+                                    <a href="#">Clients<span class="arrow"></span>
                                     </a>
                                 </li>
                                 <ul class="sub-menu collapse {{routeParent('client')?'show':''}}" id="emp">
-                                    <li class="{{routeChild('client.listing')?'active': ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('client.listing')}}"> Client Listing</a></li>
-                                    <li class="{{routeChild('client.create')?'active': ''}}"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{route('client.create')}}"> Client Create</a></li>
-                                    <li class="{{routeChild('client.invoice')?'active': ''}}"><i class="fa fa-file-excel-o" aria-hidden="true"></i><a href="{{route('client.invoice')}}"> Invoices</a></li>
+                                    <li class="{{routeChild('client.listing')?'active': ''}}"><i class="fa fa-list-alt" aria-hidden="true"></i><a href="{{route('client.listing')}}">Client Listing</a></li>
+                                    <li class="{{routeChild('client.create')?'active': ''}}"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{route('client.create')}}">Client Create</a></li>
+                                    <li class="{{routeChild('client.invoice')?'active': ''}}"><i class="fa fa-file-excel-o" aria-hidden="true"></i><a href="{{route('client.invoice')}}">Invoices</a></li>
                                 </ul>
 
 
                                 <li data-toggle="collapse" data-target="#report" class="collapsed {{routeParent('report')?'active':''}}">
                                     <i class="fa fa-pie-chart fa-lg"></i> 
-                                    <a href="#">
-                                        Reports
-                                        <span class="arrow"></span>
+                                    <a href="#">Reports<span class="arrow"></span>
                                     </a>
                                 </li>
                                 <ul class="sub-menu collapse {{routeParent('report')?'show':''}}" id="report">
-                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}"> Annual Job Periods Report</a></li>
-                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}"> Annual Service Report</a></li>
-                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}"> Annual Employee Proformance</a></li>
+                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}">Annual Job Periods Report</a></li>
+                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}">Annual Service Report</a></li>
+                                    <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="{{route('report.view')}}">Annual Employee Proformance</a></li>
                                 </ul>
                                 @endrole
                                 @role(['client'])
                                 <li class="{{ routeParent('contact')? 'active' : '' }}">
                                    <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                    <a href="{{route('contact')}}">
-                                        Contact Green Lanka
-                                    </a>
+                                    <a href="{{route('contact')}}">Contact Green Lanka</a>
                                 </li>
                                 @endrole
                             </ul>
