@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/srv/http/app.green-lanka.com/routes/web.php</file>
-            <file>file:/srv/http/app.green-lanka.com/app/Http/Controllers/ClientController.php</file>
-            <file>file:/srv/http/app.green-lanka.com/resources/views/client/view.blade.php</file>
-            <file>file:/srv/http/app.green-lanka.com/resources/views/employee/attendance.blade.php</file>
-            <file>file:/srv/http/app.green-lanka.com/resources/views/client/invoice.blade.php</file>
-            <file>file:/srv/http/app.green-lanka.com/resources/views/employee/listing.blade.php</file>
+            <file>file:/srv/http/greenlk.com/app/Models/User.php</file>
+            <file>file:/srv/http/greenlk.com/resources/views/layouts/app.blade.php</file>
+            <file>file:/srv/http/greenlk.com/app/Http/Controllers/JobController.php</file>
+            <file>file:/srv/http/greenlk.com/app/Http/Controllers/Controller.php</file>
+            <file>file:/srv/http/greenlk.com/database/seeders/UserTableSeeder.php</file>
+            <file>file:/srv/http/greenlk.com/resources/views/job/listing.blade.php</file>
         </group>
     </open-files>
 </project-private>
